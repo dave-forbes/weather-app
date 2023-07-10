@@ -15,8 +15,9 @@ async function getWeather(location) {
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`);
     const json = await response.json();
-    const weather = json.current.condition.text;
-    await getBackgroundImage(weather);
+    console.log(json);
+    const city = `${json.location.name}, ${json.location.country}`;
+    getBackgroundImage(city);
     displayWeather(json);
   } catch (err) {
     console.log(err);
@@ -28,7 +29,7 @@ function displayWeather(data) {
   const locationData = document.createElement('h1');
   const conditionData = document.createElement('h2');
   const iconData = document.createElement('img');
-  locationData.textContent = data.location.name;
+  locationData.textContent = `${data.location.name}, ${data.location.country}`;
   conditionData.textContent = data.current.condition.text;
   iconData.src = data.current.condition.icon;
   wrapper.appendChild(locationData);
