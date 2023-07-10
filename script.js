@@ -3,7 +3,7 @@ const locationData = document.querySelector('#location');
 const conditionData = document.querySelector('#condition');
 const body = document.querySelector('body');
 const wrapper = document.querySelector('#content-wrapper');
-let city;
+
 
 navigator.geolocation.getCurrentPosition((position) => {
   getWeather(position.coords.latitude, position.coords.longitude);
@@ -13,11 +13,11 @@ async function getWeather(latitude, longitude) {
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${latitude},${longitude}&aqi=no`);
     const json = await response.json();
-    displayWeather(json);
-    console.log(json);
     const tzID = json.location.tz_id;
     const cityArray = tzID.split('/');
-    city = cityArray[1];
+    const city = cityArray[1];
+    await getBackgroundImage(city);
+    displayWeather(json);
   } catch (err) {
     console.log(err);
   }
@@ -36,3 +36,13 @@ function displayWeather(data) {
   })
 }
 
+function getBackgroundImage(cityValue) {
+  fetch(`https://api.unsplash.com/search/photos?query=${cityValue}&client_id=WdKmaCWM493X2x7wxCB_uTQC6B_rWj7tkWlewDTIUQ4`)
+    .then(response => response.json())
+    .then(jsonData => {
+      console.log(jsonData);
+      const num = Math.floor(Math.random() * 10) + 1;
+      body.style.cssText = `background: URL('${jsonData.results[num].urls.regular}'); background-size: cover;
+    background - repeat: no - repeat; background-postion:center;`;
+    })
+}
