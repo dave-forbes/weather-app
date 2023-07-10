@@ -16,8 +16,8 @@ async function getWeather(location) {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`);
     const json = await response.json();
     console.log(json);
-    const city = `${json.location.name}, ${json.location.country}`;
-    getBackgroundImage(city);
+    const locationValue = `${json.location.name}, ${json.location.country}`;
+    await getBackgroundImage(locationValue);
     displayWeather(json);
   } catch (err) {
     console.log(err);
@@ -36,20 +36,31 @@ function displayWeather(data) {
   wrapper.appendChild(conditionData);
   wrapper.appendChild(iconData);
   let array = Object.entries(data.current);
-  let filteredArray = [array[2], array[6], array[8], array[9], array[10], array[12], array[14], array[15], array[16], array[19], array[20], array[21]];
+  let filteredArray = [array[2], array[16], array[6], array[21], array[9], array[12], array[14], array[19], array[20]];
   filteredArray.forEach(item => {
     const p = document.createElement('p');
-    p.textContent = `${item[0]}: ${item[1]}`;
+    const itemZero = item[0].split('_');
+    console.log(itemZero);
+    if (itemZero[1] == 'dir') {
+      p.textContent = `${itemZero[0]} - ${item[1]}`;
+    } else if (itemZero[1]) {
+      p.textContent = `${itemZero[0]} - ${item[1]}${itemZero[1]}`;
+    } else {
+      p.textContent = `${itemZero[0]} - ${item[1]}`;
+    }
     wrapper.appendChild(p);
   })
 }
 
-function getBackgroundImage(cityValue) {
-  fetch(`https://api.unsplash.com/search/photos?query=${cityValue}&client_id=WdKmaCWM493X2x7wxCB_uTQC6B_rWj7tkWlewDTIUQ4`)
-    .then(response => response.json())
-    .then(jsonData => {
-      const num = Math.floor(Math.random() * 10) + 1;
-      body.style.cssText = `background: URL('${jsonData.results[num].urls.full}'); background-size: cover;
+async function getBackgroundImage(locationValue) {
+  try {
+    const response = await fetch(`https://api.unsplash.com/search/photos?query=${locationValue}&client_id=WdKmaCWM493X2x7wxCB_uTQC6B_rWj7tkWlewDTIUQ4`)
+    const jsonData = await response.json()
+    const num = Math.floor(Math.random() * 10) + 1;
+    body.style.cssText = `background: URL('${jsonData.results[num].urls.full}'); background-size: cover;
     background - repeat: no - repeat;`;
-    });
-}
+  }
+  catch (err) {
+    console.log(err);
+  }
+};
