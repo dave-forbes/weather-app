@@ -2,6 +2,7 @@ const iconData = document.querySelector('img');
 const locationData = document.querySelector('#location');
 const conditionData = document.querySelector('#condition');
 const body = document.querySelector('body');
+const wrapper = document.querySelector('#content-wrapper');
 
 async function getWeather() {
   try {
@@ -24,7 +25,7 @@ function displayWeather(data) {
   filteredArray.forEach(item => {
     const p = document.createElement('p');
     p.textContent = `${item[0]}: ${item[1]}`;
-    body.appendChild(p);
+    wrapper.appendChild(p);
   })
 }
 
