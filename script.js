@@ -19,7 +19,9 @@ function displayWeather(data) {
   locationData.textContent = data.location.name;
   conditionData.textContent = data.current.condition.text;
   let array = Object.entries(data.current);
-  array.forEach(item => {
+  console.table(array);
+  let filteredArray = [array[2], array[6], array[8], array[9], array[10], array[12], array[14], array[15], array[16], array[19], array[20], array[21]];
+  filteredArray.forEach(item => {
     const p = document.createElement('p');
     p.textContent = `${item[0]}: ${item[1]}`;
     body.appendChild(p);
