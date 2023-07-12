@@ -109,6 +109,39 @@ p {
   }
 
   h1 {
+    font-size: 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  p,
+  button,
+  label {
+    font-size: 1.1rem;
+  }
+
+  button,
+  input {
+    font-size: 0.9rem;
+  }
+
+  img {
+    width: 4rem;
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+  #content-wrapper,
+  #input-wrapper {
+    width: 60vw;
+    padding: 1rem 3rem;
+  }
+
+  h1 {
     font-size: 1.1rem;
   }
 
@@ -126,15 +159,5 @@ p {
 
   img {
     width: 3rem;
-  }
-
-}
-
-@media only screen and (max-width: 600px) {
-
-  #content-wrapper,
-  #input-wrapper {
-    width: 60vw;
-    padding: 1rem 3rem;
   }
 }
