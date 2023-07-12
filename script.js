@@ -46,29 +46,39 @@ async function getWeather(location) {
 
 function displayWeather(data) {
   wrapper.innerHTML = '';
+
   const locationData = document.createElement('h1');
-  const conditionData = document.createElement('h2');
-  const iconData = document.createElement('img');
   locationData.textContent = `${data.location.name}, ${data.location.country}`;
-  conditionData.textContent = data.current.condition.text;
-  iconData.src = data.current.condition.icon;
   wrapper.appendChild(locationData);
+
+  const conditionData = document.createElement('h2');
+  conditionData.textContent = data.current.condition.text;
   wrapper.appendChild(conditionData);
+
+  const iconData = document.createElement('img');
+  iconData.src = data.current.condition.icon;
   wrapper.appendChild(iconData);
-  let array = Object.entries(data.current);
-  let filteredArray = [array[2], array[16], array[6], array[21], array[9], array[12], array[14], array[19], array[20]];
-  filteredArray.forEach(item => {
-    const p = document.createElement('p');
-    const itemZero = item[0].split('_');
-    if (itemZero[1] == 'dir') {
-      p.textContent = `${itemZero[0]} - ${item[1]}`;
-    } else if (itemZero[1]) {
-      p.textContent = `${itemZero[0]} - ${item[1]}${itemZero[1]}`;
-    } else {
-      p.textContent = `${itemZero[0]} - ${item[1]}`;
-    }
-    wrapper.appendChild(p);
-  })
+
+  const temp = document.createElement('p');
+  temp.textContent = `Temperature: ${data.current.temp_c}°C`;
+  wrapper.appendChild(temp);
+
+  const wind = document.createElement('p');
+  wind.textContent = `Wind Speed: ${data.current.wind_mph}mph`;
+  wrapper.appendChild(wind);
+
+  const windDirection = document.createElement('p');
+  windDirection.textContent = `Wind Direction: ${data.current.wind_dir}`;
+  wrapper.appendChild(windDirection);
+
+  const rain = document.createElement('p');
+  rain.textContent = `Precipitation: ${data.current.precip_mm}mm`;
+  wrapper.appendChild(rain);
+
+  const humidity = document.createElement('p');
+  humidity.textContent = `Humidity: ${data.current.humidity}%`;
+  wrapper.appendChild(humidity);
+
 }
 
 async function getBackgroundImage(locationValue) {
