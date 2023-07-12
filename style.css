@@ -24,6 +24,10 @@ h2 {
   margin: 10px 0 0 0;
 }
 
+input {
+  margin: 10px;
+}
+
 img {
   width: 100px;
   aspect-ratio: 1;
@@ -71,6 +75,7 @@ p {
   flex-direction: row;
   border-radius: 0 0 15px 15px;
   padding: 20px 50px 50px 50px;
+  gap: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -78,6 +83,16 @@ p {
   #content-wrapper,
   #input-wrapper {
     width: 60vw;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input {
+    margin: 0px;
   }
 }
 
