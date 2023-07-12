@@ -22,6 +22,11 @@ function loadGif() {
   wrapper.appendChild(gif);
 }
 
+function removeGif() {
+  const gif = document.querySelector('.spin');
+  gif.style.display = 'none';
+}
+
 
 async function getWeather(location) {
   wrapper.innerHTML = '';
@@ -33,7 +38,7 @@ async function getWeather(location) {
     const locationValue = `${json.location.name}, ${json.location.country}`;
     await getBackgroundImage(locationValue);
     displayWeather(json);
-    gif.style.display = 'none';
+    removeGif();
   } catch (err) {
     console.log(err);
   }
