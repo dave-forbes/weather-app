@@ -34,6 +34,7 @@ async function getWeather(location) {
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`);
     const json = await response.json();
+    console.log(json);
     const locationValue = `${json.location.name}, ${json.location.country}`;
     await getBackgroundImage(locationValue);
     displayWeather(json);
@@ -75,7 +76,8 @@ async function getBackgroundImage(locationValue) {
     const response = await fetch(`https://api.unsplash.com/search/photos?query=${locationValue}&client_id=WdKmaCWM493X2x7wxCB_uTQC6B_rWj7tkWlewDTIUQ4`)
     const jsonData = await response.json()
     const num = Math.floor(Math.random() * 10) + 1;
-    body.style.cssText = `background: URL('${jsonData.results[num].urls.full}'); background-size: cover;
+    console.log(jsonData);
+    body.style.cssText = `background: URL('${jsonData.results[num].urls.regular}'); background-size: cover;
     background - repeat: no - repeat;`;
     inputWrapper.style.display = 'flex';
   }
