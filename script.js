@@ -34,7 +34,6 @@ async function getWeather(location) {
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`);
     const json = await response.json();
-    console.log(json);
     const locationValue = `${json.location.name}, ${json.location.country}`;
     await getBackgroundImage(locationValue);
     displayWeather(json);
@@ -60,7 +59,6 @@ function displayWeather(data) {
   filteredArray.forEach(item => {
     const p = document.createElement('p');
     const itemZero = item[0].split('_');
-    console.log(itemZero);
     if (itemZero[1] == 'dir') {
       p.textContent = `${itemZero[0]} - ${item[1]}`;
     } else if (itemZero[1]) {
