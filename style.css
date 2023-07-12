@@ -21,21 +21,39 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
-  margin: 10px 0 0 0;
+  margin: 1rem 0 0 0;
 }
 
 input {
-  margin: 10px;
+  margin: 1rem;
+}
+
+input,
+button {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+  transition: 0.3s;
 }
 
 img {
-  width: 100px;
+  width: 6rem;
   aspect-ratio: 1;
-  margin: 10px;
+  margin: 1rem;
 }
 
 img.spin {
-  padding: 100px;
+  padding: 6rem;
   animation: rotation 2s infinite linear;
 }
 
@@ -50,7 +68,7 @@ img.spin {
 }
 
 p {
-  margin: 5px;
+  margin: 0.4rem;
   text-transform: capitalize;
   font-size: 1.5rem;
 }
@@ -61,21 +79,55 @@ p {
   align-items: center;
   justify-content: center;
   background-color: rgba(240, 255, 255, 0.911);
-  width: max(300px, 20vw);
+  width: 25rem;
   text-align: center;
 }
 
 #content-wrapper {
   flex-direction: column;
-  border-radius: 15px 15px 0 0;
-  padding: 50px 50px 0 50px;
+  border-radius: 1rem 1rem 0 0;
+  padding: 3rem 3rem 0 3rem;
 }
 
 #input-wrapper {
   flex-direction: row;
-  border-radius: 0 0 15px 15px;
-  padding: 20px 50px 50px 50px;
-  gap: 10px;
+  border-radius: 0 0 1rem 1rem;
+  padding: 1rem 3rem 3rem 3rem;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 1440px) {
+
+  #content-wrapper,
+  #input-wrapper {
+    width: min(30vw, 20rem);
+    padding: 2rem;
+  }
+
+  #content-wrapper {
+    padding-bottom: 0;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+
+  p,
+  button,
+  h2,
+  label {
+    font-size: 0.9rem;
+  }
+
+  button,
+  input {
+    font-size: 0.7rem;
+  }
+
+  img {
+    width: 3rem;
+  }
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -83,36 +135,6 @@ p {
   #content-wrapper,
   #input-wrapper {
     width: 60vw;
+    padding: 1rem 3rem;
   }
-
-  label {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  input {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width: 1440px) {
-
-  p,
-  button,
-  input,
-  h1,
-  h2,
-  label {
-    font-size: 0.9rem;
-  }
-
-  button {
-    font-size: 0.7rem;
-  }
-
-  img {
-    width: 50px;
-  }
-
 }
