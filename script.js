@@ -17,7 +17,7 @@ button.addEventListener('click', () => {
 
 function loadGif() {
   const gif = document.createElement('img');
-  gif.src = '/images/loading.png';
+  gif.src = 'images/loading.png';
   gif.classList.add('spin');
   wrapper.appendChild(gif);
 }
