@@ -29,6 +29,21 @@ img {
   aspect-ratio: 1;
 }
 
+img.spin {
+  padding: 50px;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 p {
   margin: 5px;
   text-transform: capitalize;
@@ -40,7 +55,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(240, 255, 255, 0.749);
+  background-color: rgba(240, 255, 255, 0.911);
   width: 20vw;
 }
 

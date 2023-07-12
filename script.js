@@ -2,6 +2,10 @@ const body = document.querySelector('body');
 const wrapper = document.querySelector('#content-wrapper');
 const input = document.querySelector('input');
 const button = document.querySelector('button');
+const inputWrapper = document.querySelector('#input-wrapper');
+inputWrapper.style.display = 'none';
+
+loadGif();
 
 navigator.geolocation.getCurrentPosition((position) => {
   getWeather(`${position.coords.latitude}, ${position.coords.longitude}`);
@@ -11,7 +15,17 @@ button.addEventListener('click', () => {
   getWeather(input.value);
 })
 
+function loadGif() {
+  const gif = document.createElement('img');
+  gif.src = '/images/loading.png';
+  gif.classList.add('spin');
+  wrapper.appendChild(gif);
+}
+
+
 async function getWeather(location) {
+  wrapper.innerHTML = '';
+  loadGif();
   try {
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`);
     const json = await response.json();
@@ -19,6 +33,7 @@ async function getWeather(location) {
     const locationValue = `${json.location.name}, ${json.location.country}`;
     await getBackgroundImage(locationValue);
     displayWeather(json);
+    gif.style.display = 'none';
   } catch (err) {
     console.log(err);
   }
@@ -59,6 +74,7 @@ async function getBackgroundImage(locationValue) {
     const num = Math.floor(Math.random() * 10) + 1;
     body.style.cssText = `background: URL('${jsonData.results[num].urls.full}'); background-size: cover;
     background - repeat: no - repeat;`;
+    inputWrapper.style.display = 'flex';
   }
   catch (err) {
     console.log(err);
