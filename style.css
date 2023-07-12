@@ -27,6 +27,7 @@ h2 {
 img {
   width: 100px;
   aspect-ratio: 1;
+  margin: 10px;
 }
 
 img.spin {
