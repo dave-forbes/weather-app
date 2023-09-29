@@ -1,0 +1,160 @@
+:root {
+  font-size: 16px;
+  font-family: 'Onest', sans-serif;
+  color: white;
+  font-weight: 100;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 1rem 0 0 0;
+  font-weight: 100;
+}
+
+input {
+  width: min(70vw, 500px);
+  border-radius: 1rem;
+}
+
+.input-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+input {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+i.fa-magnifying-glass {
+  color: white;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+i.fa-magnifying-glass:hover {
+  color: black;
+}
+
+img {
+  width: 3rem;
+  aspect-ratio: 1;
+}
+
+img.spin {
+  padding: 6rem;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+p {
+  margin: 0.4rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+
+.title-container {
+  display: grid;
+  justify-items: center;
+  position: relative;
+  margin-top: 8px;
+}
+
+.menu {
+  transform: scale(2);
+  position: absolute;
+}
+
+i.fa-bars {
+  left: 25px;
+  top: 25px;
+}
+
+i.fa-shuffle {
+  right: 25px;
+  top: 25px;
+}
+
+.time {
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.day {
+  font-size: 1rem;
+}
+
+.day-time {
+  display: flex;
+  align-items: center;
+}
+
+.temperature {
+  font-size: 8rem;
+}
+
+.condition {
+  font-size: 2rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.data-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.day-time-background {
+  background: rgb(150,186,215);
+background: linear-gradient(0deg, rgba(150,186,215,1) 0%, rgba(45,146,252,1) 100%);
+}
+
+.night-time-background {
+  background: rgb(148,120,200);
+background: linear-gradient(0deg, rgba(148,120,200,1) 0%, rgba(15,0,110,1) 100%);
+}
