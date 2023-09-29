@@ -103,3 +103,9 @@ function getWeatherForRandomLocation() {
 
   getWeather(randomCapital);
 }
+
+const menuButton = document.querySelector("i.fa-bars");
+
+menuButton.addEventListener("click", showMoreData);
+
+function showMoreData() {}
