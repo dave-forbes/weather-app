@@ -2,14 +2,25 @@ import date from 'date-and-time';
 import wcc from 'world-countries-capitals';
 
 async function getWeather(location) {
+  const loadingScreen = document.querySelector('.loading');
+  const errorScreen = document.querySelector('.error');
   try {
+    errorScreen.classList.add('hide');
+    loadingScreen.classList.remove('hide');
     const response = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}=${location}&aqi=no`
     );
     const json = await response.json();
+    if (!response.ok) {
+      const message = json.error.message;
+      throw new Error(message);
+    }
     displayWeather(json);
+    loadingScreen.classList.add('hide');
   } catch (err) {
-    console.log(err);
+    errorScreen.classList.remove('hide');
+    errorScreen.innerHTML = `${err.message}<br/> Please refresh page to try again.`;
+    loadingScreen.classList.add('hide');
   }
 }
 
@@ -133,7 +144,7 @@ async function getWeatherBasedOnLocation() {
     const coordinates = `${position.coords.latitude}, ${position.coords.longitude}`;
     getWeather(coordinates);
   } catch (error) {
-    console.error('Error getting location:', error.message);
+    getWeatherForRandomLocation();
   }
 }
 
