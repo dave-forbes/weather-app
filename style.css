@@ -9,13 +9,21 @@
 }
 
 .day-time-background {
-  background: rgb(150,186,215);
-background: linear-gradient(0deg, rgba(150,186,215,1) 0%, rgba(45,146,252,1) 100%);
+  background: rgb(150, 186, 215);
+  background: linear-gradient(
+    0deg,
+    rgba(150, 186, 215, 1) 0%,
+    rgba(45, 146, 252, 1) 100%
+  );
 }
 
 .night-time-background {
-  background: rgb(148,120,200);
-background: linear-gradient(0deg, rgba(148,120,200,1) 0%, rgba(15,0,110,1) 100%);
+  background: rgb(148, 120, 200);
+  background: linear-gradient(
+    0deg,
+    rgba(148, 120, 200, 1) 0%,
+    rgba(15, 0, 110, 1) 100%
+  );
 }
 
 body {
@@ -75,6 +83,17 @@ i {
   position: relative;
 }
 
+.loading,
+.error {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
 /* TITLE SECTION */
 
 .title-container {
@@ -92,7 +111,6 @@ i {
 i.fa-circle-info {
   left: 25px;
   top: 25px;
-  z-index: 1;
 }
 
 i.fa-shuffle {
@@ -117,7 +135,7 @@ i.fa-shuffle {
 /* WEATHER DATA SECTION */
 
 .data-wrapper {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -186,7 +204,9 @@ i.fa-magnifying-glass {
   font-size: 1rem;
 }
 
-i.fa-magnifying-glass:hover, i.fa-circle-info:hover, i.fa-shuffle:hover {
+i.fa-magnifying-glass:hover,
+i.fa-circle-info:hover,
+i.fa-shuffle:hover {
   color: black;
 }
 
@@ -199,4 +219,3 @@ i.fa-magnifying-glass:hover, i.fa-circle-info:hover, i.fa-shuffle:hover {
 .translucent {
   opacity: 80%;
 }
-
