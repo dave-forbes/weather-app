@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && webpack serve --open",
+    "start": "webpack serve --open",
     "deploy": "npm run build && gh-pages -d dist",
     "watch": "webpack --watch"
   },
@@ -26,7 +26,6 @@
   },
   "dependencies": {
     "date-and-time": "^3.0.3",
-    "gh-pages": "^6.1.1",
     "world-countries-capitals": "^3.4.0"
   }
 }
