@@ -4,7 +4,7 @@ import wcc from 'world-countries-capitals';
 async function getWeather(location) {
   try {
     const response = await fetch(
-      `https://api.weatherapi.com/v1/current.json?key=eb5dbdb018c94d67812132539230707&q=${location}&aqi=no`
+      `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}=${location}&aqi=no`
     );
     const json = await response.json();
     displayWeather(json);
