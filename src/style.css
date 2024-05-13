@@ -1,0 +1,202 @@
+/* GENERAL */
+
+:root {
+  font-size: 16px;
+  font-family: 'Onest', sans-serif;
+  color: white;
+  font-weight: 100;
+  box-sizing: border-box;
+}
+
+.day-time-background {
+  background: rgb(150,186,215);
+background: linear-gradient(0deg, rgba(150,186,215,1) 0%, rgba(45,146,252,1) 100%);
+}
+
+.night-time-background {
+  background: rgb(148,120,200);
+background: linear-gradient(0deg, rgba(148,120,200,1) 0%, rgba(15,0,110,1) 100%);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: black;
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin: 1rem 0 0 0;
+  font-weight: 100;
+}
+
+input {
+  width: min(70vw, 500px);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+p {
+  margin: 0.4rem;
+  text-transform: capitalize;
+  font-size: 1.5rem;
+}
+
+i {
+  cursor: pointer;
+  color: white;
+  transition: 0.3s;
+}
+
+.main-content {
+  height: min(100vh, 677px);
+  width: min(100vw, 1024px);
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  transition: 0.5s;
+  position: relative;
+}
+
+/* TITLE SECTION */
+
+.title-container {
+  display: grid;
+  justify-items: center;
+  position: relative;
+  margin-top: 8px;
+}
+
+.menu {
+  transform: scale(2);
+  position: absolute;
+}
+
+i.fa-circle-info {
+  left: 25px;
+  top: 25px;
+  z-index: 1;
+}
+
+i.fa-shuffle {
+  right: 25px;
+  top: 25px;
+}
+
+.time {
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.day {
+  font-size: 1rem;
+}
+
+.day-time {
+  display: flex;
+  align-items: center;
+}
+
+/* WEATHER DATA SECTION */
+
+.data-wrapper {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+
+.temperature {
+  font-size: 8rem;
+}
+
+.condition {
+  font-size: 2rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.more-info {
+  margin: 0 5vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 1rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.more-info p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.more-info i {
+  transform: scale(2);
+  margin: 1rem 0;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  background-color: rgba(240, 248, 255, 0.217);
+  border-radius: 10px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.3rem;
+  text-align: center;
+}
+
+/* FOOTER/SEARCH SECTION */
+
+.input-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+i.fa-magnifying-glass {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 1rem;
+}
+
+i.fa-magnifying-glass:hover, i.fa-circle-info:hover, i.fa-shuffle:hover {
+  color: black;
+}
+
+/* UTILITY CLASSES */
+
+.hide {
+  display: none;
+}
+
+.translucent {
+  opacity: 80%;
+}
+

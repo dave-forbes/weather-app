@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/1defe17cdd.js" crossorigin="anonymous"></script>
+  <script src="bundle.js" defer></script>
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="title-wrapper">
+      <i class="fa-solid fa-circle-info menu"></i>
+      <div class='title-container'>
+        <h1 class="title"></h1>
+        <div class="day-time">
+          <p class="day"></p>
+          <p class="time"></p>
+        </div>
+      </div>
+      <i class="fa-solid fa-shuffle menu"></i>
+    </div>
+    <div class="data-wrapper">
+      <div class="condition"></div>
+      <div class="temperature"></div>
+    </div>
+    <div class="more-info hide">
+      <div class="country card"></div>
+      <div class="temp card"></div>
+      <div class="wind card"></div>
+      <div class="humidity card"></div>
+      <div class="precipitation card"></div>
+      <div class="uv card"></div>
+  </div>
+    <div class="input-wrapper">
+      <div class="relative">
+        <input type="text" placeholder="Enter city...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
