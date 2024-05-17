@@ -73,7 +73,7 @@ i {
 }
 
 .main-content {
-  height: min(100vh, 677px);
+  height: min(100%, 677px);
   width: min(100vw, 1024px);
   padding: 0;
   margin: 0;
